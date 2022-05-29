@@ -10,3 +10,5 @@ if avg >= 80:
     print("평균은 {}점이고, 결과는 합격입니다.".format(avg))
 else:
     print("평균은 {}점이고, 결과는 불합격 입니다.".format(avg))
+
+# 숙제 90 ~ 99
