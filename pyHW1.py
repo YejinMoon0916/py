@@ -61,19 +61,7 @@ elif num2 >= num1 and num2 >= num3:
 else:
     print("가장 큰 수는 {}입니다.".format(num3))
 
-# page 99 (4)
-carNum = input("차량번호를 입력하세요 >>> ")
-
-carNumeven = int(carNum[7])
-
-if carNumeven % 2 == 0:
-    print("차량번호 {}는 오늘 운행 가능입니다.".format(carNum))
-else:
-    print("차량번호 {}는 오늘 운행불가능입니다.".format(carNum))
-
-
-
-
+'''
 # page 99 (3)
 while True:
     num1 = int(input("정수1 입력 >>> "))
@@ -86,3 +74,14 @@ while True:
         print("가장 큰 수는 {}입니다.".format(num2))
     else:
         print("가장 큰 수는 {}입니다.".format(num3))
+'''
+
+# page 99 (4)
+carNum = input("차량번호를 입력하세요 >>> ")
+
+carNumeven = int(carNum[6:])            # carNum[-1]
+
+if carNumeven % 2 == 0:
+    print("차량번호 {}는 오늘 운행 가능입니다.".format(carNum))
+else:
+    print("차량번호 {}는 오늘 운행불가능입니다.".format(carNum))
