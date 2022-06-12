@@ -1,15 +1,19 @@
-import cv2
+import cv2                              # pip install opencv-python
 import mediapipe as mp                  # pip install mediapipe
 
-mpDetection = mp.solutions.face_detection
+# 이미지에서 얼굴 찾기
+cap = cv2.VideoCapture("img6.jpg")
+
+mpFaceDetection = mp.solutions.face_detection
 mpDraw = mp.solutions.drawing_utils
-faceDetection = mpDetection.FaceDetection()
+faceDetection = mpFaceDetection.FaceDetection(0.25)              # 25% 이상 얼굴로 인식될 경우
 
-img = cv2.imread("img6.jpg")
-imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-results = faceDetection.process(imgRGB)
-
-# mpDraw.draw_detection(img, results.detections.location_data)
-print(results)
-cv2.imshow("my title", img)
-cv2.waitKey(0)
+success, img = cap.read()
+if success:
+    imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    results = faceDetection.process(imgRGB)
+    if results.detections:
+        for id, detection in enumerate(results.detections):
+            mpDraw.draw_detection(img, detection)
+    cv2.imshow("Image", img)                             # 얼굴 위치에 네모표시
+    cv2.waitKey(0)
